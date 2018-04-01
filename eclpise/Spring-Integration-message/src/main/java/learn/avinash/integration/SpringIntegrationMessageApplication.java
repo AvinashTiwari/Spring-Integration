@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.GenericMessage;
+import org.springframework.messaging.support.MessageBuilder;
 
 @SpringBootApplication
 @Configuration
@@ -28,7 +29,8 @@ public class SpringIntegrationMessageApplication implements ApplicationRunner {
 		map.put("key", "value");
 		
 		MessageHeaders headers = new MessageHeaders(map);
-		Message<String> message = new GenericMessage<String>("Hello World", headers);
+		Message<String> message = MessageBuilder.withPayload("Hello World from Builder pattern")
+				.setHeader("newHeader", "newHeaderValue").build();
 		PrintService printServie = new PrintService();
 		printServie.print(message);
 		
