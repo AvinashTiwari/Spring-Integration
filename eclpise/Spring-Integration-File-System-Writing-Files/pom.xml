@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>learn.avinash.integration</groupId>
-	<artifactId>Spring-Integration-File-System-Reading-Files</artifactId>
+	<artifactId>Spring-Integration-File-System-Writing-Files</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Spring-Integration-File-System-Reading-Files</name>
+	<name>Spring-Integration-File-System-Writing-Files</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
