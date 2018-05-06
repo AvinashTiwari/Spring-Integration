@@ -21,11 +21,16 @@
 		<jdbc:script location="init.sql"/>
 	</jdbc:embedded-database>
 	
+	<int-jdbc:inbound-channel-adapter
+		channel="jdbcChannel"
+		query="select * from person"
+		data-source="datasource">
+		<int:poller fixed-rate="4000"></int:poller>
+	</int-jdbc:inbound-channel-adapter>	
+	
 	<bean id="mp" class="learn.avinash.integration.MessagePrinter"/>
 	
-	<int:service-activator ref="mp" method="print" input-channel="transformChannel"/>
+	<int:service-activator ref="mp" method="print" input-channel="jdbcChannel"/>
 	
-	<int:channel id="jdbcChannel"/>
-
-	
+	<int:channel id="jdbcChannel"/>	
 </beans>
